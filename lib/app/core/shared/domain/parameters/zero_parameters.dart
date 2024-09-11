@@ -1,0 +1,3 @@
+class ZeroParameters {
+  const ZeroParameters();
+}
