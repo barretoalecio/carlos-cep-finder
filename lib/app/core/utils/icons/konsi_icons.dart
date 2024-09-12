@@ -1,16 +1,16 @@
 import 'package:flutter/widgets.dart';
 
-class CustomKonsiIcons {
-  const CustomKonsiIcons();
+class KonsiIcons {
+  const KonsiIcons();
 
-  static const fontFamily = 'CustomKonsiIcons';
+  static const _fontFamily = 'CustomKonsiIcons';
 
   static const IconData map = IconData(
     0xe800,
-    fontFamily: fontFamily,
+    fontFamily: _fontFamily,
   );
   static const IconData passbook = IconData(
     0xe801,
-    fontFamily: fontFamily,
+    fontFamily: _fontFamily,
   );
 }
