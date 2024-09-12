@@ -25,7 +25,7 @@ class NetworkServiceImplementation implements NetworkService {
   @override
   Stream<NetworkStatus> get onNetworkStatusChanged =>
       connectivity.onConnectivityChanged.map(
-        (status) => status != [ConnectivityResult.none]
+        (status) => status != ConnectivityResult.none
             ? NetworkStatus.connected
             : NetworkStatus.disconnected,
       );
