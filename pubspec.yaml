@@ -1,5 +1,5 @@
 name: konsi_desafio_flutter
-description: "A new Flutter project."
+description: "Desafio Konsi"
 
 publish_to: 'none'
 
@@ -12,28 +12,78 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # Provides Cupertino-style widgets for iOS.
   cupertino_icons: ^1.0.8
+  
+  # Modular and dependency injection support for Flutter.
   flutter_modular: ^6.3.4
+  
+  # State management solution for Flutter, using BLoC pattern.
   flutter_bloc: ^8.1.6
+  
+  # Functional programming library for Dart.
   dartz: ^0.10.1
+  
+  # HTTP client for making network requests.
   http: ^1.2.2
+  
+  # Lottie animations support for Flutter.
   lottie: ^3.1.2
+  
+  # Provides connectivity status for the device.
   connectivity_plus: ^6.0.5
+  
+  # Value equality and comparison library for Dart.
   equatable: ^2.0.5
+  
+  # Google Maps integration for Flutter apps.
+  google_maps_flutter: ^2.9.0
+  
+  # SVG image support for Flutter.
+  flutter_svg: ^2.0.10+1
+  
+  # Lightweight and fast key-value storage for Flutter.
+  hive: ^2.2.3
+  
+  # Provides access to the device's file system.
+  path_provider: ^2.1.4
+  
+  # Adds shimmer effect to Flutter widgets.
+  shimmer: ^3.0.0
+  
+  # Loads environment variables from a .env file.
+  flutter_dotenv: ^5.1.0
+  
+  # Provides location services for Flutter.
+  geolocator: ^13.0.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  # Lints and style checks for Flutter projects.
   flutter_lints: ^4.0.0
+  
+  # Test library for BLoC state management.
+  bloc_test: ^9.1.7
+  
+  # Mocking library for Dart and Flutter tests.
+  mocktail: ^1.0.4
 
 flutter:
 
   uses-material-design: true
   assets:
     - assets/animation/
+    - assets/error/
+    - assets/idle/
+    - .env
 
   fonts:
     - family: CustomKonsiIcons
       fonts:
         - asset: assets/fonts/CustomKonsiIcons.ttf
+
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/inter.ttf
