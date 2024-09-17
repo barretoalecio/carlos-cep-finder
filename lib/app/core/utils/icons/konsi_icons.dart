@@ -9,8 +9,12 @@ class KonsiIcons {
     0xe800,
     fontFamily: _fontFamily,
   );
-  static const IconData passbook = IconData(
+  static const IconData notebook = IconData(
     0xe801,
+    fontFamily: _fontFamily,
+  );
+  static const IconData marker = IconData(
+    0xe802,
     fontFamily: _fontFamily,
   );
 }
