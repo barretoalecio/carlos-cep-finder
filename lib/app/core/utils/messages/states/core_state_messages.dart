@@ -6,4 +6,5 @@ class CoreStateMessages {
   static const idleState = 'Estado inicial';
   static const serverError = CoreErrorMessages.serverError;
   static const noInternetConnection = CoreErrorMessages.noInternetConnection;
+  static const emptyData = CoreErrorMessages.emptyData;
 }
