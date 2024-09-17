@@ -1,6 +1,6 @@
-import 'outlet_events.dart';
+import 'outlet_event.dart';
 
-class ChangeCurrentOutletIndexEvent implements OutletEvents {
+class ChangeCurrentOutletIndexEvent implements OutletEvent {
   const ChangeCurrentOutletIndexEvent({required this.index});
 
   final int index;

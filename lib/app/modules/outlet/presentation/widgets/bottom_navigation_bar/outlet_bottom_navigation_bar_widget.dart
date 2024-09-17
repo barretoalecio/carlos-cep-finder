@@ -15,43 +15,55 @@ class OutletBottomNavigationBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      elevation: 2,
-      backgroundColor: Theme.of(context).colorScheme.surface,
-      currentIndex: currentIndex,
-      type: BottomNavigationBarType.fixed,
-      selectedLabelStyle: const TextStyle(fontWeight: FontWeight.w600),
-      selectedIconTheme: IconThemeData(
-        color: Theme.of(context).colorScheme.primary,
+    return Container(
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: const Color(0xFFE8E8E8).withOpacity(0.2),
+            spreadRadius: 0,
+            blurRadius: 4,
+            offset: const Offset(0, -4),
+          ),
+        ],
       ),
-      selectedItemColor: Theme.of(context).colorScheme.primary,
-      unselectedItemColor: Theme.of(context).colorScheme.onSecondary,
-      unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.w700),
-      onTap: (index) => onDestinationSelected(index),
-      items: [
-        const BottomNavigationBarItem(
-          activeIcon: SelectedBottomNavigationIconWidget(
-            icon: Icon(
-              KonsiIcons.map,
+      child: BottomNavigationBar(
+        elevation: 10,
+        backgroundColor: Theme.of(context).colorScheme.onSurface,
+        currentIndex: currentIndex,
+        type: BottomNavigationBarType.fixed,
+        selectedLabelStyle: const TextStyle(fontWeight: FontWeight.w600),
+        selectedIconTheme: IconThemeData(
+          color: Theme.of(context).colorScheme.primary,
+        ),
+        selectedItemColor: Theme.of(context).colorScheme.primary,
+        unselectedItemColor: Theme.of(context).colorScheme.onSecondary,
+        unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.w700),
+        onTap: (index) => onDestinationSelected(index),
+        items: [
+          const BottomNavigationBarItem(
+            activeIcon: SelectedBottomNavigationIconWidget(
+              icon: Icon(
+                KonsiIcons.map,
+              ),
+            ),
+            icon: Padding(
+              padding: EdgeInsets.all(4.0),
+              child: Icon(KonsiIcons.map),
+            ),
+            label: 'Mapa',
+          ),
+          const BottomNavigationBarItem(
+            label: 'Caderneta',
+            activeIcon: SelectedBottomNavigationIconWidget(
+              icon: Icon(KonsiIcons.notebook),
+            ),
+            icon: Padding(
+              padding: EdgeInsets.all(4.0),
+              child: Icon(KonsiIcons.notebook),
             ),
           ),
-          icon: Padding(
-            padding: EdgeInsets.all(4.0),
-            child: Icon(KonsiIcons.map),
-          ),
-          label: 'Mapa',
-        ),
-        const BottomNavigationBarItem(
-          label: 'Caderneta',
-          activeIcon: SelectedBottomNavigationIconWidget(
-            icon: Icon(KonsiIcons.passbook),
-          ),
-          icon: Padding(
-            padding: EdgeInsets.all(4.0),
-            child: Icon(KonsiIcons.passbook),
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

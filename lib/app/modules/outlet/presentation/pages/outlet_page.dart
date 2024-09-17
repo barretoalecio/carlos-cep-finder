@@ -7,13 +7,25 @@ import '../../../../core/utils/app_routes/map_module_routes.dart';
 import '../../../../core/utils/app_routes/notebook_module_routes.dart';
 import '../../../../core/utils/app_routes/outlet_module_routes.dart';
 import '../../../../core/utils/mixins/no_internet_mixin.dart';
+import '../controllers/blocs/location_bloc.dart';
 import '../controllers/blocs/update_current_index_bloc.dart';
 import '../controllers/events/change_current_outlet_index_event.dart';
+import '../controllers/events/get_current_location_event.dart';
+import '../controllers/states/successfully_got_location_state.dart';
 import '../controllers/states/successfully_modified_outlet_index_state.dart';
 import '../widgets/bottom_navigation_bar/outlet_bottom_navigation_bar_widget.dart';
 
 class OutletPage extends StatefulWidget {
-  const OutletPage({super.key});
+  const OutletPage({
+    super.key,
+    this.index = 0,
+    required this.latitude,
+    required this.longitude,
+  });
+
+  final int index;
+  final double latitude;
+  final double longitude;
 
   @override
   State<OutletPage> createState() => _OutletPageState();
@@ -21,12 +33,24 @@ class OutletPage extends StatefulWidget {
 
 class _OutletPageState extends State<OutletPage> with NoInternetMixin {
   late final UpdateCurrentIndexBloc updateCurrentIndexBloc;
-
+  late final LocationBloc locationBloc;
   @override
   void initState() {
     super.initState();
+    locationBloc = Modular.get();
+    locationBloc.add(
+      GetCurrentLocationEvent(
+        latitude: widget.latitude,
+        longitude: widget.longitude,
+      ),
+    );
     updateCurrentIndexBloc = Modular.get();
-    _onDestinationSelected(0);
+  }
+
+  @override
+  void dispose() {
+    updateCurrentIndexBloc.dispose();
+    super.dispose();
   }
 
   void _onDestinationSelected(int index) {
@@ -46,7 +70,17 @@ class _OutletPageState extends State<OutletPage> with NoInternetMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const RouterOutlet(),
+      body: BlocConsumer<LocationBloc, AppState>(
+        bloc: locationBloc,
+        listener: (context, state) {
+          if (state is SuccessfullyGotLocationState) {
+            _onDestinationSelected(widget.index);
+          }
+        },
+        builder: (context, state) {
+          return const RouterOutlet();
+        },
+      ),
       bottomNavigationBar: BlocBuilder<UpdateCurrentIndexBloc, AppState>(
         bloc: updateCurrentIndexBloc,
         builder: (context, state) {
