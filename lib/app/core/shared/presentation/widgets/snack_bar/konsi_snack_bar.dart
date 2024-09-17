@@ -20,20 +20,20 @@ class KonsiSnackBar {
     final colorScheme = theme.colorScheme;
 
     if (state is ProcessingState) {
-      backgroundColor = colorScheme.secondaryContainer;
+      backgroundColor = colorScheme.onPrimaryContainer;
       icon = null;
     } else if (state is ErrorState) {
       backgroundColor = colorScheme.error;
       icon = Icons.error_outline_outlined;
     } else {
-      backgroundColor = colorScheme.secondary;
+      backgroundColor = colorScheme.primary;
       icon = Icons.check_circle_outline;
     }
 
     final snackBar = SnackBar(
       behavior: SnackBarBehavior.floating,
       dismissDirection: DismissDirection.horizontal,
-      duration: const Duration(seconds: 5),
+      duration: const Duration(milliseconds: 1500),
       elevation: 0,
       content: Row(
         children: [
