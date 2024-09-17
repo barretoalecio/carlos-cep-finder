@@ -3,5 +3,5 @@ class MapModuleRoutes {
 
   static const moduleName = '/map';
   static const initialRoute = '/';
-  static const searchZipCodesRoute = '/search_zip_code';
+  static const searchPostalCodesRoute = '/search_postal_code';
 }
