@@ -7,14 +7,14 @@ import '../entities/coordinator_result_entity.dart';
 import '../failures/coordinator_failure.dart';
 import '../repositories/coordinator_repository.dart';
 
-abstract class GetProperRouteToNavigate
+abstract class GetProperRouteToNavigateUsecase
     extends AsyncUsecase<CoordinatorResultEntity, ZeroParameters> {
-  const GetProperRouteToNavigate();
+  const GetProperRouteToNavigateUsecase();
 }
 
-class GetProperRouteToNavigateImplementation
-    implements GetProperRouteToNavigate {
-  const GetProperRouteToNavigateImplementation(this.repository);
+class GetProperRouteToNavigateUsecaseImplementation
+    implements GetProperRouteToNavigateUsecase {
+  const GetProperRouteToNavigateUsecaseImplementation(this.repository);
 
   final CoordinatorRepository repository;
 
