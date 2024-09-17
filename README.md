@@ -54,6 +54,10 @@ Este projeto foi desenvolvido utilizando as seguintes tecnologias e padrões com
    ```bash
    flutter run
    
+## Demonstração 🎥
+
+[Clique aqui para acessar a demonstração do projeto](https://www.youtube.com/watch?v=Ttp9EdzOddQ)
+
 ## 📱 APK
 
 [Baixe a APK desse projeto aqui](https://drive.google.com/drive/folders/1d5tcVO7K1KbZsrU7OyxGt-z8jA7X9v1a?usp=sharing)
