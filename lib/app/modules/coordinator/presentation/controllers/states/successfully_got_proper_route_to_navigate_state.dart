@@ -18,7 +18,4 @@ class SuccessfullyGotProperRouteToNavigateState extends Equatable
         coordinatorResultEntity,
         message,
       ];
-
-  @override
-  bool? get stringify => true;
 }

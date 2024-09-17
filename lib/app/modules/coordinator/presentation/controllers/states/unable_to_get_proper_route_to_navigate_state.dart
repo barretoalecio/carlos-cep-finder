@@ -13,7 +13,4 @@ class UnableToGetProperRouteToNavigateState extends Equatable
   List<Object?> get props => [
         message,
       ];
-
-  @override
-  bool? get stringify => true;
 }
